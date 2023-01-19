@@ -3728,3 +3728,7 @@ alter table recetas_preparaciones add constraint FKawlnsuuoklbl094mk7q7ivbr4 for
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2022-09-04 13:16:04 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ARTEFACTOS[*]"; se esperaba "ALTER, ANALYZE"
+Syntax error in SQL statement "ARTEFACTOS[*]"; expected "ALTER, ANALYZE"; SQL statement:
+ARTEFACTOS [42001-200]
