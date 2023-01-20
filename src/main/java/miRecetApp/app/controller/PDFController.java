@@ -1,7 +1,9 @@
 package miRecetApp.app.controller;
 
 import java.awt.Color;
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -120,11 +122,30 @@ public class PDFController {
 		
 		System.out.println("EXPORTANDO EL PDF DE LA RECETA: " + receta.getNombre());		
 
-		FontFactory.register("Quicksand-VariableFont_wght.ttf");
-		FontFactory.register("Quicksand-Bold.ttf");
-		FontFactory.register("Quicksand-Medium.ttf");
-		FontFactory.register("Quicksand-SemiBold.ttf");
-		FontFactory.register("Quicksand-Regular.ttf");
+		try {
+			
+			URL quicksandVariablePath =  Thread.currentThread().getContextClassLoader().getResource("Quicksand-VariableFont_wght.ttf");
+			URL quicksandBoldPath =  Thread.currentThread().getContextClassLoader().getResource("Quicksand-Bold.ttf");
+			URL quicksandLightPath =  Thread.currentThread().getContextClassLoader().getResource("Quicksand-Light.ttf");
+			URL quicksandMediumPath =  Thread.currentThread().getContextClassLoader().getResource("Quicksand-Medium.ttf");
+			URL quicksandRegularPath =  Thread.currentThread().getContextClassLoader().getResource("Quicksand-Regular.ttf");
+			URL quicksandSemiBoldPath =  Thread.currentThread().getContextClassLoader().getResource("Quicksand-SemiBold.ttf");
+			FontFactory.register(quicksandVariablePath.toString());
+			FontFactory.register(quicksandBoldPath.toString());
+			FontFactory.register(quicksandLightPath.toString());
+			FontFactory.register(quicksandMediumPath.toString());
+			FontFactory.register(quicksandRegularPath.toString());
+			FontFactory.register(quicksandSemiBoldPath.toString());
+			
+			
+			System.out.println("FUENTE QUICKSAND CARGADA");
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("ERROR AL CARGAR FUENTE QUICKSAND");
+			e.printStackTrace();
+		}
+		
 		String fuenteEnUso = "Quicksand";
 		
 		Font fontTitulo = FontFactory.getFont(fuenteEnUso, 16, Font.BOLD, new Color(86, 61, 124));

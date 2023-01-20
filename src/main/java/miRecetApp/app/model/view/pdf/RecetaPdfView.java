@@ -60,8 +60,11 @@ public class RecetaPdfView  extends AbstractPdfView {
 					File.separator + "Quicksand-VariableFont_wght.ttf";
 			FontFactory.register(quicksandFontPath);
 			
+			System.out.println("FUENTE QUICKSAND CARGADA");
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			System.out.println("ERROR AL CARGAR FUENTE QUICKSAND");
 			e.printStackTrace();
 		}
 		
