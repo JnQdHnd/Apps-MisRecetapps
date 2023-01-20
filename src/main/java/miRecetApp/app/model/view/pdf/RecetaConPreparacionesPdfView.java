@@ -1,6 +1,8 @@
 package miRecetApp.app.model.view.pdf;
 
 import java.awt.Color;
+import java.io.File;
+import java.net.URL;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -52,11 +54,19 @@ public class RecetaConPreparacionesPdfView  extends AbstractPdfView {
 				receta.getNombre() +
 				".pdf\"");
 		
-		FontFactory.register("Quicksand-VariableFont_wght.ttf");
-		FontFactory.register("Quicksand-Bold.ttf");
-		FontFactory.register("Quicksand-Medium.ttf");
-		FontFactory.register("Quicksand-SemiBold.ttf");
-		FontFactory.register("Quicksand-Regular.ttf");
+		try {
+			
+			String quicksandFontPath = getServletContext().getRealPath(File.separator) + 
+					File.separator + "resources" + 
+					File.separator + "static" + 
+					File.separator + "fonts" + 
+					File.separator + "Quicksand-VariableFont_wght.ttf";
+			FontFactory.register(quicksandFontPath);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		System.out.println("ACTIVADO EL PDF DE RECETA CON PREPARACIONES");
 		Font fontTitulo = FontFactory.getFont("Quicksand", 16, Font.BOLD, new Color(86, 61, 124));
